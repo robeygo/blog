@@ -69,7 +69,7 @@
                                     <ul class="dropdown" id="li_down" role="menu">
                                         @foreach(auth()->user()->unreadNotifications as $notify)
                                             <li   id="markasread" onclick="markNotificationAsRead('{{$notify->id}}')">
-                                                    commented on your
+                                                   new post added
                                                 <a href="">
                                                     <strong>{{ $notify->data['data']  }}</strong>
                                                 </a></li>

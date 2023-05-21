@@ -47,7 +47,7 @@ class AddPostNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data'=> 'new post' . $this->post->title .'has been added by'.
+            'data'=> 'new post  ' . $this->post->title .'has been added by'.
                                         auth()->user()->i,
 
         ];
