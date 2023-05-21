@@ -32,6 +32,22 @@
                                 @isset($comment->replays)
                                     @foreach($comment->replays as $rep)
                                         <p>{{$rep->comment}}</p>
+
+
+                                        @isset($rep->rereplays)
+                                            @foreach($rep->rereplays as $re_rep)
+                                                <p style="margin-left: 13px">    {{$re_rep->comment}}</p>
+                                            @endforeach
+                                        @endisset
+                                        <form action="{{route('replay_comment')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" value="{{$post->id}}" name="post_id">
+                                            <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                                            <input type="hidden" value="{{$rep->id}}" name="replay_id">
+                                            <input name="comment" placeholder=" replay for comment ..." width="10%" style="width: 30%;border-top: none;border-right:none;border-left:none;border-radius: 100px;padding: 4px">
+                                            <button class="btn btn-primary" style="border-radius: 50px">re_replay</button>
+                                        </form>
+
                                     @endforeach
                                 @endisset
                             </div>
@@ -41,7 +57,7 @@
                                 <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
                                 <input type="hidden" value="{{$comment->id}}" name="replay_id">
                                 <input name="comment" placeholder=" replay for comment ..." width="50%" style="width: 40%;border-top: none;border-right:none;border-left:none;border-radius: 100px;padding: 4px">
-                                <button class="btn btn-primary" style="border-radius: 50px">send</button>
+                                <button class="btn btn-primary" style="border-radius: 50px">replay</button>
                             </form>
                             <br>
                         </div>

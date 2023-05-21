@@ -42,10 +42,10 @@ class PostController extends Controller
     }
 
     public function show(Request $request , $id){
-       $post = Post::with(['comments.replays','comments' => function ($query) use ($id) {
+       $post = Post::with(['comments.replays.rereplays','comments.replays','comments' => function ($query) use ($id) {
            $query->where('replay_id', 0);
        }])->find($id);
-
+    //return $post;
         return view('posts.show', compact('post'));
     }
 

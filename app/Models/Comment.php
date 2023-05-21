@@ -22,4 +22,7 @@ class Comment extends Model
     public function replays(){
         return $this->hasMany('App\Models\Comment','replay_id','id');
 }
+    public function rereplays(){
+        return $this->hasMany('App\Models\Comment','replay_id','id');
+    }
 }
