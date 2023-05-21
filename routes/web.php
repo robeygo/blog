@@ -62,3 +62,7 @@ Route::get('/get-last-notification', function () {
     //dd($lastNotification);
     return response()->json($lastNotification);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

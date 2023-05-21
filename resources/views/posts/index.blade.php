@@ -28,5 +28,12 @@
                 </tr>
             @endforeach
         </table>
+
+
+            {{ $posts->links() }}
+
+        <style>
+
+        </style>
     </div>
 @endsection
